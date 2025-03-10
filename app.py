@@ -3,9 +3,14 @@ from getstream import Stream
 import os
 from dotenv import load_dotenv
 import json
+from flask_cors import CORS
 
 load_dotenv()
 app = Flask(__name__)
+
+
+# Option 2: Allow only specific origins (more secure)
+CORS(app, resources={r"/get-token/*": {"origins": "https://akasharasu.github.io"}})
 
 
 @app.route('/')
